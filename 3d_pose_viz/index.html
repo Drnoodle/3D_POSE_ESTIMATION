@@ -1,37 +1,41 @@
 
 <html>
-    <head><meta charset="utf-8" /></head>
-    <body>
-        
-        <script type="text/javascript" src="plotlyjs-bundle.js"></script>
-            
-            
-        <script type="text/javascript" src="figure.js"></script>
-        
-        <div id="41a02ae1-d511-428c-bec6-f46d088d34c0" style="width: 65%; display:inline-block; float:left; height: 100%;" class="plotly-graph-div"></div>
-        <script type="text/javascript">
-            (function(){
-                window.PLOTLYENV={'BASE_URL': 'https://plot.ly'};
+<head><meta charset="utf-8" /></head>
+<body>
 
-                var gd = document.getElementById('41a02ae1-d511-428c-bec6-f46d088d34c0')
-                var resizeDebounce = null;
+<script type="text/javascript" src="plotlyjs-bundle.js"></script>
 
-                function resizePlot() {
-                    var bb = gd.getBoundingClientRect();
-                    Plotly.relayout(gd, {
-                        width: gd.width,
-                        height: gd.height
-                    });
-                }
-                
-                Plotly.plot(gd,  {
-                    data: figure.data,
-                    layout: figure.layout,
-                    frames: figure.frames,
-                    config: {"mapboxAccessToken": "pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiY2lxMnVvdm5iMDA4dnhsbTQ5aHJzcGs0MyJ9.X9o_rzNLNesDxdra4neC_A", "linkText": "Export to plot.ly", "showLink": true}
-                });
-                
-           }());
+
+<script type="text/javascript" src="figure.js"></script>
+
+<div id="ed54c47a-0156-47c1-b626-61951ae0dd6c" style="width: 65%; display:inline-block; float:left; height: 100%;" class="plotly-graph-div"></div>
+<script type="text/javascript">
+    (function(){
+        window.PLOTLYENV={'BASE_URL': 'https://plot.ly'};
+
+        var gd = document.getElementById('ed54c47a-0156-47c1-b626-61951ae0dd6c')
+        var resizeDebounce = null;
+
+        function resizePlot() {
+            var bb = gd.getBoundingClientRect();
+            Plotly.relayout(gd, {
+                width: bb.width,
+                height: bb.height
+            });
+        }
+
+
+
+
+        Plotly.plot(gd,  {
+            data: figure.data,
+            layout: figure.layout,
+            frames: figure.frames,
+            config: {"mapboxAccessToken": "pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiY2lxMnVvdm5iMDA4dnhsbTQ5aHJzcGs0MyJ9.X9o_rzNLNesDxdra4neC_A", "linkText": "Export to plot.ly", "showLink": true}
+        });
+
+    }());
+
 
             lastFrameId = 0
 
@@ -52,9 +56,8 @@
 
                 setInterval(function(){
 
-                 sliderPos = parseFloat(slider.getAttribute("transform").slice(10))
-                 frameId = Math.floor(sliderPos/sliderSize*totalFrames)
-                    document.getElementsByClassName("svg-container")[0].style.height= "100%";
+                 sliderPos = parseFloat(slider.getAttribute("transform").slice(10));
+                 frameId = Math.floor(sliderPos/sliderSize*totalFrames);
 
                  if(frameId != lastFrameId){
                      console.log(frameId)
