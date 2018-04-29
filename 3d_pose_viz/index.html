@@ -1,0 +1,76 @@
+
+<html>
+    <head><meta charset="utf-8" /></head>
+    <body>
+        
+        <script type="text/javascript" src="plotlyjs-bundle.js"></script>
+            
+            
+        <script type="text/javascript" src="figure.js"></script>
+        
+        <div id="41a02ae1-d511-428c-bec6-f46d088d34c0" style="width: 65%; display:inline-block; float:left; height: 100%;" class="plotly-graph-div"></div>
+        <script type="text/javascript">
+            (function(){
+                window.PLOTLYENV={'BASE_URL': 'https://plot.ly'};
+
+                var gd = document.getElementById('41a02ae1-d511-428c-bec6-f46d088d34c0')
+                var resizeDebounce = null;
+
+                function resizePlot() {
+                    var bb = gd.getBoundingClientRect();
+                    Plotly.relayout(gd, {
+                        width: gd.width,
+                        height: gd.height
+                    });
+                }
+                
+                Plotly.plot(gd,  {
+                    data: figure.data,
+                    layout: figure.layout,
+                    frames: figure.frames,
+                    config: {"mapboxAccessToken": "pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiY2lxMnVvdm5iMDA4dnhsbTQ5aHJzcGs0MyJ9.X9o_rzNLNesDxdra4neC_A", "linkText": "Export to plot.ly", "showLink": true}
+                });
+                
+           }());
+
+            lastFrameId = 0
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+
+                totalFrames = 138
+
+                slider = document.getElementsByClassName("slider-grip-rect")[0];
+                sliderContainer = document.getElementsByClassName("slider-rail-touch-rect")[0];
+
+                sliderSize = parseFloat(document.getElementsByClassName("slider-rail-touch-rect")[0].getAttribute("width"))-19;
+                 
+                imgBbox = document.getElementsByClassName("bbox")[0]
+                imgJ2d = document.getElementsByClassName("j2d")[0]
+
+                setInterval(function(){
+
+                 sliderPos = parseFloat(slider.getAttribute("transform").slice(10))
+                 frameId = Math.floor(sliderPos/sliderSize*totalFrames)
+
+                 if(frameId != lastFrameId){
+                     console.log(frameId)
+                     imgId = frameId +".jpg"
+		     imgBbox.setAttribute("src", "imgs/bboxes/"+frameId+".jpg")
+                     imgJ2d.setAttribute("src", "imgs/joints2d/"+frameId+".jpg")
+                     lastFrameId = frameId
+                 }
+
+		    }.bind(this),500);
+
+            }.bind(this));
+
+
+
+        </script>
+
+<img src="imgs/bboxes/0.jpg" class="bbox" width="35%" style="display:inline-block;float:left"/>
+<img src="imgs/joints2d/0.jpg" class="j2d" width="35%" style="display:inline-block;float:left"/>
+
+
+    </body>
+</html>
