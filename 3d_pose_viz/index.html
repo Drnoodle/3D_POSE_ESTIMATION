@@ -54,6 +54,7 @@
 
                  sliderPos = parseFloat(slider.getAttribute("transform").slice(10))
                  frameId = Math.floor(sliderPos/sliderSize*totalFrames)
+                    document.getElementsByClassName("svg-container")[0].style.height= "100%";
 
                  if(frameId != lastFrameId){
                      console.log(frameId)
